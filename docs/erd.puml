@@ -1,0 +1,64 @@
+@startuml
+
+!include ../../../lib-plantuml-theme/src/themes/pretty.iuml
+
+left to right direction
+
+hide empty members
+
+class Library {
+  documents: Array<Document>
+}
+
+class Document {
+  title: string
+  author: string
+  file: string
+  addedAt: Date
+  tags: Array<Tag>
+}
+
+class Tag {
+  name: string
+}
+
+class Annotation {
+  name: string
+  content: string
+  document: Document
+  addedAt: Date
+}
+
+
+/'
+class Collection {
+  tags: Array<Tag>
+  sources: Array<Source>
+}
+
+class Tag {
+  id: Long
+  name: string
+}
+
+class Source {
+  id: Long
+  tags: Array<Tag>
+}
+
+class Project {
+  id: Long
+  tags: Array<Tag>
+}
+
+class Note {
+  id: Long
+}
+'/
+
+Library  -- Document
+Document -- Tag
+Document -- Annotation
+Annotation - Tag
+
+@enduml

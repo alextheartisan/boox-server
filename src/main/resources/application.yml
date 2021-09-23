@@ -1,0 +1,9 @@
+server:
+  port: 7001
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  devtools:
+    livereload:
+      enabled: false

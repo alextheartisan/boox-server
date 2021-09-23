@@ -1,0 +1,8 @@
+drop table IF exists documents;
+
+create table documents
+(
+    id     INT AUTO_INCREMENT primary key,
+    title  VARCHAR(250) not null,
+    author VARCHAR(250) not null
+);
