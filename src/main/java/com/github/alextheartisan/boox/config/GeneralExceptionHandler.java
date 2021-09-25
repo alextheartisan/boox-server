@@ -1,4 +1,4 @@
-package com.github.alextheartisan.boox.web.errors;
+package com.github.alextheartisan.boox.config;
 
 import static java.util.Map.entry;
 import static java.util.Map.of;

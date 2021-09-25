@@ -40,3 +40,5 @@ out/
 library
 
 src/main/java/com/github/alextheartisan/playground
+src/main/java/com/github/alextheartisan/boox/user
+api.yaml
