@@ -1,0 +1,17 @@
+@startuml
+
+!include ../../../lib-plantuml-theme/src/themes/pretty.iuml
+
+participant Controller as C
+participant Service as S
+participant Repository as R
+
+   -> C: createDocument(//Document//)
+C  -> S: createDocument(//Document//)
+S  -> R: save(//Document//)
+S <-- R: //Document//
+C <-- S: //Optional<Document>//
+  <-- C: //ResponseEntity<?>//
+'Service -> Repository
+
+@enduml

@@ -1,5 +1,6 @@
 package com.github.alextheartisan.boox.documents;
 
+import com.github.alextheartisan.boox.persistence.BaseEntity;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -11,11 +12,7 @@ import lombok.ToString;
 @Table(name = "documents")
 @Getter
 @ToString
-class Document {
-
-    @Id
-    @GeneratedValue
-    private Long id;
+class Document extends BaseEntity {
 
     @Setter
     @NotBlank(message = "Title could not be empty")

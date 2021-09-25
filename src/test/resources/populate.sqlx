@@ -1,4 +1,0 @@
-insert into documents (title, author)
-values ('Dive into Python', 'Mark Pilgrim'),
-       ('Effective Java', 'Joshua Bloch'),
-       ('JavaScript: The Good Parts', 'David Flanagan');

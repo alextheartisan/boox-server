@@ -4,12 +4,8 @@ import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
-import java.util.List;
-import javax.print.Doc;
-import org.hamcrest.Matchers.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -18,12 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class DocumentControllerTests {
+class DocumentControllerIntegrationTests {
 
     @Autowired
     private MockMvc mvc;
@@ -32,11 +27,11 @@ class DocumentControllerTests {
     private ObjectMapper mapper;
 
     @Autowired
-    private DocumentRepository repo;
+    private DocumentRepository repository;
 
     @BeforeEach
     void clear() {
-        repo.deleteAll();
+        repository.deleteAll();
     }
 
     @Nested
@@ -126,7 +121,7 @@ class DocumentControllerTests {
         @Test
         @DisplayName("should [return a document] when [it exists]")
         void getDocument_existing() throws Exception {
-            var document = repo.save(new Document("Dive into Python", "Mark Pilgrim"));
+            var document = repository.save(new Document("Dive into Python", "Mark Pilgrim"));
 
             mvc
                 .perform(
@@ -167,7 +162,7 @@ class DocumentControllerTests {
         @Test
         @DisplayName("should [return a fulfilled response] when [has documents in database]")
         void getAllDocuments_present() throws Exception {
-            repo.save(new Document("Dive into Python", "Mark Pilgrim"));
+            repository.save(new Document("Dive into Python", "Mark Pilgrim"));
 
             mvc
                 .perform(get("/documents").contentType(MediaType.APPLICATION_JSON))

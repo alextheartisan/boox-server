@@ -1,4 +1,3 @@
-readme.md
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -37,3 +36,7 @@ out/
 .vscode/
 
 *.db
+
+library
+
+src/main/java/com/github/alextheartisan/playground

@@ -6,9 +6,8 @@ import org.springframework.web.multipart.support.StandardServletMultipartResolve
 
 @Configuration
 public class SpringConfiguration {
-
-    @Bean
-    public StandardServletMultipartResolver multipartResolver() {
-        return new StandardServletMultipartResolver();
-    }
+    //    @Bean
+    //    public StandardServletMultipartResolver multipartResolver() {
+    //        return new StandardServletMultipartResolver();
+    //    }
 }
